@@ -1,0 +1,73 @@
+<!--Extends from base.html for navbar and flash messages functionality-->
+{% extends "base.html" %}
+{% block title %}Edit Chord Sheet{% endblock %}
+
+<!--Main content-->
+{% block content %}
+<!--Form to submit song data-->
+<form id="chord-sheets-container" method="post">
+    <!--Name-->
+    <label for="songName"><h2><u>Song Name:</u></h2></label>
+    <input type="text" id="songName" class="form-control form-control-lg" name="songName" value="{{ sheet.song_name }}" placeholder="e.g. Good Riddance" required>
+    <br>
+
+    <!--Artist and Album-->
+    <label for="artist"><h5>Artist:</h5></label>
+    <input type="text" id="artist"  class="form-control inline" name="artist" value="{{ sheet.artist }}" placeholder="e.g. Green Day" required>
+
+    <label for="album"><h5>Album:</h5></label>
+    <input type="text" id="album" class="form-control inline" name="album" value="{{ sheet.album }}" placeholder="e.g. Nimrod" required>
+    <br>
+
+    <!--Diffficulty rating-->
+    <div class="difficulty">
+        <label for="difficulty"><h5>Difficulty:</h5></label>
+
+        <label for="Easy" class="easy"><h5>Easy</h5></label>
+        <input type="radio" id="Easy" value="Easy" name="difficulty" required
+        {% if sheet.difficulty == "Easy" %} checked {% endif %}>
+
+        <label for="Medium" class="medium"><h5>Medium</h5></label>
+        <input type="radio" id="Medium" value="Medium" name="difficulty" required
+        {% if sheet.difficulty == "Medium" %} checked {% endif %}>
+
+        <label for="Hard" class="hard"><h5>Hard</h5></label>
+        <input type="radio" id="Hard" value="Hard" name="difficulty" required
+        {% if sheet.difficulty == "Hard" %} checked {% endif %}>
+    </div>
+    <hr>
+
+    <!--Tuning, Capo, Key and BPM-->
+    <label for="tuning"><h6>Tuning:</h6></label>
+    <input type="text" id="tuning"  class="form-control inline wide" value="{{ sheet.tuning }}" placeholder="e.g. B D D D D D" name="tuning">
+
+    <label for="Capo"><h6>Capo:</h6></label>
+    <input type="text" id="capo" class="form-control inline wide" value="{{ sheet.capo }}" placeholder="e.g. 4th fret" name="capo">
+
+    <label for="Key"><h6>Key:</h6></label>
+    <input type="text" id="key"  class="form-control inline wide" value="{{ sheet.key }}" placeholder="e.g. F# Minor" name="key">
+
+    <label for="BPM"><h6>BPM:</h6></label>
+    <input type="text" id="BPM" class="form-control inline wide" value="{{ sheet.bpm }}" placeholder="e.g. 120" name="bpm">
+    <br><br>
+
+    <!--Strumming-->
+    <label for="strummingPatterns"><h4>Strumming Pattern(s):</h4></label>
+    <textarea id="strummingPatterns" class="form-control" placeholder="e.g. [Verse]: DD-UDU x3 (Palm Muted)&#10;Chorus: DD-UDU x3" name="strummingPatterns" required>{{ sheet.strumming_pattern }}</textarea>
+    <br>
+
+    <!--Lyrics with Chords-->
+    <label for="lyrics"><h4>Lyrics/Chords:</h4></label>
+    <textarea id="lyrics" class="form-control" placeholder="e.g. [Intro] Am G C(x2) &#10;I was scared of dentists and the dark..."  name="lyricsChords" required>{{ sheet.lyrics_chords }}</textarea>
+    <br>
+
+    <!--General Notes-->
+    <label for="notes"><h4>Additional Notes:</h4></label>
+    <textarea id="notes" class="form-control"  placeholder="e.g. The chorus was easier than the verse &#10;Focus bass strings for the pre-chorus"  name="notes">{{ sheet.notes }}</textarea>
+    <br>
+
+    <!--Submit Form Button-->
+    <button type="submit" class="btn btn-success">Save Chord Sheet</button>
+</form>
+
+{% endblock %}

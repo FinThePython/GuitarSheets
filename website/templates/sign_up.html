@@ -1,0 +1,36 @@
+<!--This extends from the base file and allows for a unique name-->
+{% extends 'base.html' %} 
+{% block title %}Sign up{% endblock %}
+<!--This is the block of all the content unique to the sign-up page-->
+{% block content %}
+<!--This form allows users to sign up-->
+<!--It asks for a email, firstname, a memorable phrase and password (which is confirmed twice). Data is sent by POST to backend to be stored-->
+<div id="admin-container">
+    <form method="POST">
+        <div class="header">
+            <h1><u>Sign Up</u></h1>
+        </div>
+        <div class="form-group"><!--Asks for email-->
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+        </div>
+        <br>
+        <div class="form-group"><!--Ask for memorable phrase-->
+            <label for="firstName">Memorable Phrase (Must be greater than 4 characters)</label>
+            <input type="text" class="form-control" id="memorablePhrase" name="memorablePhrase" placeholder="Enter a memorable phrase">
+        </div>
+        <br>
+        <div class="form-group"><!--Ask for password-->
+            <label for="password1">Password (Must be greater than 6 characters)</label>
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password">
+        </div>
+        <br>
+        <div class="form-group"><!--Ask to confirm password-->
+            <label for="password2">Password (confirm)</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password">
+        </div>
+        <br /><!--Submit button to send to backend server by POST-->
+        <button type="submit" class = "btn btn-submit d-block mx-auto">Submit</button>
+    </form>
+</div>
+{% endblock %}

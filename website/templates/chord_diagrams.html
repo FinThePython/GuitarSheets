@@ -1,0 +1,28 @@
+<!--Extends from base.html for navbar and flash messages functionality-->
+{% extends "base.html" %}
+{% block title %}Your Chord Diagrams{% endblock %}
+
+<!--Main content-->
+{% block content %}
+
+<!--This container will grow as diagrams are drawn in with JS-->
+<div id="diagram-container">
+
+    <div class="header">
+        <h1><u>Your Chord Diagrams</u></h1>
+    </div>
+
+    <!--Button to go create new chord diagram-->
+    <div class="justify-content-center">
+        <a href="/create-chord-diagram" class="btn btn-submit">Create a Chord Diagram</a>
+    </div>
+    <br>
+    
+    <div id="display-chords-container"><!-- Drawn in JS --></div>
+
+</div>
+
+<!-- JS file to draw in the user's chords -->
+<script src="{{ url_for('static', filename='view_chord_diagrams.js') }}"></script>
+
+{% endblock %}

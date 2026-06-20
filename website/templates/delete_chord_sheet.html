@@ -1,0 +1,34 @@
+<!--Extends from base.html for navbar and flash messages functionality-->
+{% extends "base.html" %}
+{% block title %}Delete Chord Sheet{% endblock %}
+
+<!--Main content-->
+{% block content %}
+
+<form id="chord-sheets-container" method="post">
+
+    <!--Make clear what this page is for-->
+    <div class="header">
+        <h3>You are attempting to delete:</h3>
+    </div>
+
+    <!--Name-->
+    <h1><u><b>{{ sheet.song_name }}</b></u></h1>
+    <!--Artist and Album-->
+    <h4>by <b>{{ sheet.artist }}</b> from <b>{{ sheet.album }}</b></h4>
+    <br>
+
+    <h3>Are you sure you want to continue?</h3>   
+    <h3><b>This action cannot be undone!</b></h3>
+    <br>
+
+    <div style="font-size: large;">
+        <!--Return to previous page-->
+        <a href="/chord-sheets" class="btn btn-primary">Return</a>
+        <!--Submit details to server to process deletion-->
+        <button type="submit" class = "btn btn-danger">Confirm Delete</button>
+    </div>
+ 
+</form>
+
+{% endblock %}

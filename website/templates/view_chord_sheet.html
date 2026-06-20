@@ -1,0 +1,50 @@
+<!--Extends from base.html for navbar and flash messages functionality-->
+{% extends "base.html" %}
+{% block title %}View Chord Sheet{% endblock %}
+
+<!--Main content-->
+{% block content %}
+
+<div id="chord-sheets-container">
+
+    <!--Name-->
+    <h1><u><b>{{ sheet.song_name }}</b></u></h1>
+    <!--Artist and Album-->
+    <h4>by <b>{{ sheet.artist }}</b> from <b>{{ sheet.album }}</b></h4>
+
+    <!--Diffficulty rating-->
+    <h5>Difficulty: {{ sheet.difficulty }}</h5>
+    <hr>
+
+    <!--Tuning, Capo, Key and BPM-->
+    <div id="prerequisites">
+        <span>Tuning: {{ sheet.tuning }}</span>   
+        <span>Capo: {{ sheet.capo }}</span> 
+        <span>Key: {{ sheet.key }}</span> 
+        <span>BPM: {{ sheet.bpm }}</span> 
+    </div>
+    <br>
+
+    <!--Strumming-->
+    <h4 class="header">Strumming Pattern(s)</h4>
+    <div class="display-text">
+        <pre> {{ sheet.strumming_pattern }} </pre>
+    </div>
+    <br>
+
+    <!--Lyrics with Chords-->
+    <h4 class="header">Lyrics and Chords</h4>
+    <div class="display-text">
+        <pre> {{ sheet.lyrics_chords }} </pre>
+    </div>
+    <br>
+
+    <!--General Notes-->
+     <h4 class="header">Notes</h4>
+    <div class="display-text">
+        <pre> {{ sheet.notes }} </pre>
+    </div>
+    <br>
+</div>
+
+{% endblock %}

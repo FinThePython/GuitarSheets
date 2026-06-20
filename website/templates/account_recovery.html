@@ -1,0 +1,35 @@
+<!--Extends from the base.html template and uses blocks for it's own unique title-->
+{% extends 'base.html' %}
+{% block title %}Account Recovery{% endblock %}
+<!--This block holds all the content unique to this page-->
+{% block content%}
+<div id="admin-container">
+    <!--This form allows users to reset their passwords in case they have forgotten it-->
+    <form method="POST">
+        <div class="header">
+            <h1><u>Reset Password</u></h1>
+        </div>
+        <div class="form-group"><!--Ask for email-->
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address">
+        </div>
+        <br>
+        <div class="form-group"><!--Ask for memorable phrase to justify user's authority-->
+            <label for="memorablePhrase">Memorable Phrase</label>
+            <input type="memorablePhrase" class="form-control" id="memorablePhrase" name="memorablePhrase" placeholder="Enter your memorable phrase">
+        </div>
+        <br>
+        <div class="form-group"><!--Ask for password-->
+            <label for="password1">Password</label>
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter new password">
+        </div>
+        <br>
+        <div class="form-group"><!--Ask to confirm password-->
+            <label for="password2">Password (confirm)</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm new password">
+        </div>
+        <br /><!--Submit button to send to backend server by POST-->
+        <button type="submit" class = "btn btn-submit d-block mx-auto">Submit</button>
+    </form>
+</div>
+{% endblock %}

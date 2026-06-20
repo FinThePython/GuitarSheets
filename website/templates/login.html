@@ -1,0 +1,31 @@
+<!--Extends from the base.html template and uses blocks for it's own unique title-->
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+<!--This block holds all the content unique to this page-->
+{% block content%}
+<div id="admin-container">
+    <!--This is the form users will log in with, it makes use of some bootstrap classes to look nicer-->
+    <!--Users will input their email and passwords which will be sent to the backend by POST to be handeld with using python-->
+    <form method="POST">
+        <div class="header">
+            <h1><u>Login</u></h1>
+        </div>
+        <div class="form-group"><!--Ask for email-->
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address">
+        </div>
+        <br>
+        <div class="form-group"><!--Ask for password-->
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <br />
+        <div class="d-flex justify-content-center gap-3 mt-3">
+            <!--Submit details to server to process user login-->
+            <button type="submit" class = "btn btn-submit">Login</button>
+            <!--Forgot password button to direct user to re-set their password-->
+            <a href="/account-recovery" class="btn btn-secondary">Forgot Password?</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

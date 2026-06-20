@@ -1,0 +1,35 @@
+<!--Extends from base.html for navbar and flash messages functionality-->
+{% extends "base.html" %}
+{% block title %}Your Chord Sheets{% endblock %}
+
+<!--Main content-->
+{% block content %}
+
+<div id="chord-sheets-container">
+
+    <div class="header">
+        <h1><u>Your Chord Sheets</u></h1>
+    </div>
+
+     <!--Button to go create new chord diagram-->
+     <div style="text-align: center;"> 
+         <a href="/create-chord-sheet" class="btn btn-submit">Create a Chord Sheet</a>
+     </div>
+     <br>
+
+    <!--Search Bar to filter/find chord sheets-->
+    <div id="search-container">
+        <label for="search">Search Songs:</label>
+        <input type="search" id="search">
+    </div><br>
+
+    <!--Links to the user's chord sheets-->
+    <div id="links-container"> <!-- Links added with JS --> </div>
+    
+
+     <!--JS file-->
+    <script src="{{ url_for('static', filename='view_chord_sheets.js') }}"></script>
+
+</div>
+
+{% endblock %}

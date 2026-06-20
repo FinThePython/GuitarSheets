@@ -1,0 +1,54 @@
+<!--Extends from base.html for navbar and flash messages functionality-->
+{% extends "base.html" %}
+{% block title %}Create Chord Diagrams{% endblock %}
+
+<!--Main content-->
+{% block content %}
+
+<div id="diagram-container">
+
+    <!--Heading-->
+    <div class="header">
+        <h1><u>Create Chord Diagrams</u></h1>
+    </div>
+
+    <!--Enter Chord Name-->
+    <div class="chord-name">
+        <label for="chordName">Chord Name</label>
+        <input type="text" class="form-control text-center" name="chordName" id="chordName" placeholder="Enter name ( e.g. A major )">
+    </div>
+
+    <!--Enter Starting Fret-->
+    <div class="chord-name">
+        <label for="startingFret">Starting Fret</label>
+        <input type="text" class="form-control text-center" name="startingFret" id="startingFret" placeholder="Enter starting fret ( e.g. 1 )">
+    </div>
+
+
+    <div id="chord-diagram">
+
+        <!--Muted/Open String Markers-->
+        <div id="string-markers"><!-- Drawn in with JS --></div>
+
+        <!-- Fretboard -->
+        <div id="fretboard">
+             <div class="notch"></div>
+             <!-- Drawn in with JS -->
+
+            <!-- Grid to make fretboard clickable -->
+            <div id="grid">
+                <!-- Created with JS -->
+            </div>
+        </div>
+
+        <!--String Numbers-->
+        <div id="string-numbers"><!-- Drawn in with JS --></div>
+    </div>
+
+     <div class="text-center mt-1">
+        <button onclick="saveChordDiagram()" class="btn btn-success">Save Chord Diagram</button>
+    </div>
+</div>
+<!--Import JS-->
+<script src="{{ url_for('static', filename='chord_diagrams.js') }}"></script>
+{% endblock %}

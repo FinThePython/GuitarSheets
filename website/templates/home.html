@@ -1,0 +1,32 @@
+<!--Extends from the base.html template and uses blocks for it's own unique title-->
+{% extends 'base.html'%}
+{% block title %}Guitar Sheets - Home{% endblock %}
+
+<!--Main page content-->
+{%block content%}
+<div id="home-background">
+    <div id="home-container">
+        <div class="header">
+            <h1><u>Guitar Sheets</u></h1>
+        </div>
+
+        <div id="main-text">
+            <p>Welcome to Guitar Sheets, a simplistic website for learning the guitar</p>
+
+            <h1 class="header"><u>Welcome</u></h1>
+            <p>Learning the guitar has never been easier online a large collection of free tutorials online, 
+                so feel free to keep note of what you have learnt on this site so you can comeback to practise anytime.</p>
+            <br>
+
+            <h1 class="header"><u>What you can do here</u></h1>
+            <div class = "container">
+                <ul class = "myUL">
+                    <li>Store a collection of songs you are learning on guitar</li>
+                    <li>Create chord sheets for each song</li>
+                    <li>Keep track of your progress and the new chords you've learnt</li>
+                </ul>
+            </div>
+            <br>
+        <!--Use of jinja to locate a imagine in static folder to keep things organised-->
+        <img src = "{{url_for('static', filename='guitar.png')}}" alt = "Guitar picture">
+{%endblock%}
